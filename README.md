@@ -1,6 +1,16 @@
 # E-Commerce-Back-End
 E-Commerce Back End
 
+# Table of Contents
+* [Callenge]()
+* [User_Story]()
+* [Acceptance_Criteria]()
+* [Walk_through](#walk-through)
+* [installation](#installation)
+  
+### Challenge:
+This challenge is the build models and routes for a e-commerce backend
+
 # User Story
 
 AS A manager at an internet retail company
@@ -20,3 +30,13 @@ WHEN I open API GET routes in Insomnia for categories, products, or tags
 THEN the data for each of these routes is displayed in a formatted JSON
 WHEN I test API POST, PUT, and DELETE routes in Insomnia
 THEN I am able to successfully create, update, and delete data in my database
+
+## Walk Through
+
+## Installation
+To get this application working clone the repo and then in the root directory open a terminal command line and type 'npm i' to download the dependencies. 
+
+open a second terminal using cmd and type 'mysql -u root -p. 
+
+next type 'SOURCE db/schema.spl' to create the schema (tables) for your db
+
