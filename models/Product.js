@@ -35,8 +35,7 @@
             defaultValue: 10,
             validate: {
               isNumeric: true,
-            }
-
+          }
         },
         
         category_id: {
