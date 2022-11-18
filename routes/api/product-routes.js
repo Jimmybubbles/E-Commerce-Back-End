@@ -21,11 +21,44 @@ router.get('/', (req, res) => {
         },
       ],
   })
+  .then((dbproductData) => res.json(dbproductData))
+  .catch((err) => {
+    console.log(err);
+    res.status(500).json(err);
+  })
   // be sure to include its associated Category and Tag data
 });
 
 // get one product
 router.get('/:id', (req, res) => {
+  Product.findOne({
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      {
+        model: Category,
+        attributes: ["id", "category_name"],
+      },
+      {
+        model: Tag,
+        through: ProductTag,
+        as: "tags",
+      },
+    ],
+  })
+    .then((dbproductData) => {
+      // if no product data return a 404
+      if (!dbproductData) {
+        res.status(404).json({ Message: "there was no product found with this id."})
+        return;
+      }
+      res.json(dbproductData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err)
+    })
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
 });
