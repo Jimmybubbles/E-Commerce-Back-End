@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { canTreatArrayAsAnd } = require('sequelize/types/utils');
+
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
@@ -8,14 +8,14 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all products
   Product.findAll({
-      attributes: ["id", "product_name", "price", "stock","category_id"],
+      attributes: ["id", "product_name", "price", "stock", "category_id"],
       include: [
         {
-          module: Category,
+          model: Category,
           attributes: ["id", "Category_name"],
         },
         {
-          module: Tag,
+          model: Tag,
           through: ProductTag,
           as: "tags"
         },
@@ -138,6 +138,22 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+  product.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+  .then((dbproductData) => {
+      if(!dbproductData) {
+        res.status(404).json({ message: "There was no product found with this id."});
+        return;     
+      }
+      res.json(dbproductData);
+  })
+  .catch((err) =>  {
+    console.log(err),
+    res.status(500).json(err);
+  });
   // delete one product by its `id` value
 });
 

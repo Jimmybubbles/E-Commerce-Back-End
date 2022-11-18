@@ -9,6 +9,7 @@ router.get('/', (req, res) => {
   // find all tags
   Tag.findAll({
     attributes: ["id", "tag_name"],
+      // be sure to include its associated Product data
     include: [
       {
         model: Product,
@@ -18,7 +19,7 @@ router.get('/', (req, res) => {
       },
     ],
   })
-  // be sure to include its associated Product data
+
   .then((dbTagData) => res.json(dbTagData))
   .catch((err) => {
     console.log(err);
@@ -90,7 +91,7 @@ router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
   Tag.destroy({
     where: {
-      id: req.params.id;
+      id: req.params.id,
     },
   })
   .then((dbTagData) => {
