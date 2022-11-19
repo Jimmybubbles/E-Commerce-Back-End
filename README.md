@@ -43,5 +43,5 @@ open a second terminal using cmd and type 'mysql -u root -p.
 
 next type 'SOURCE db/schema.spl' to create the schema (tables) for your db
 
-next 
+next run the express server by typing node server.js.
 
