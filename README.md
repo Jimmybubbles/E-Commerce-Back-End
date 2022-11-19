@@ -45,7 +45,6 @@ open a second terminal using cmd and type 'mysql -u root -p.
 
 next type 'SOURCE db/schema.spl' to create the schema (tables) for your db
 
-<<<<<<< HEAD
 next open a integrated bash terminal to the seeds file index.js and run that fle to seed the database. and after the database is seeded open a integrated terminal to the server.js file and type node server.js to open the webserver.
 
 # what i have learnt
@@ -53,7 +52,4 @@ next open a integrated bash terminal to the seeds file index.js and run that fle
 This project made me start smoking again.. so will have to quit that. the routing is core component of web dev so need to keep making routes over and over to get the patterning in my mind. the main challenge im finding is pathing and spelling, the concepts are clear in my mind but the issues usually stem from not inputting the correct path or spelling errors in code. 
 
 I do want to work more in the backend than front but will have to work alot to get this style of code worked out. 
-=======
-next run the express server by typing node server.js.
->>>>>>> d9005283d28791c9737714ae7379c313a36bff80
 
