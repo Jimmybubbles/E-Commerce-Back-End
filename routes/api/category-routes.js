@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
             },
         ],
     })
-    .then((dbCategoryData) => (dbCategoryData))
+    .then((dbCategoryData) => res.json(dbCategoryData))
     .catch((err) => {
         console.log(err);
         res.status(500).json(err);
@@ -53,7 +53,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req,res) => {
     //update a category by its 'id' value
     Category.create({
-        category_name: req.body.Category_name,
+        category_name: req.body.category_name,
     })
     .then((dbProductData) => res.join(dbProductData))
     .catch((err) => {
